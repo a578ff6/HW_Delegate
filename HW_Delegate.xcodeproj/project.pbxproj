@@ -7,23 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		935DDF302A87CA4F00C655D5 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935DDF2F2A87CA4F00C655D5 /* AlbumTableViewCell.swift */; };
+		935DDF322A880AEF00C655D5 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935DDF312A880AEF00C655D5 /* Album.swift */; };
+		93AD0C112A887010001ABFC5 /* jf-openhuninn-2.0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93AD0C102A887010001ABFC5 /* jf-openhuninn-2.0.ttf */; };
+		93AD0C132A889E3F001ABFC5 /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AD0C122A889E3F001ABFC5 /* AlbumDetailViewController.swift */; };
 		93F91AA82A875D740085C865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F91AA72A875D740085C865 /* AppDelegate.swift */; };
 		93F91AAA2A875D740085C865 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F91AA92A875D740085C865 /* SceneDelegate.swift */; };
-		93F91AAC2A875D740085C865 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F91AAB2A875D740085C865 /* ViewController.swift */; };
 		93F91AAF2A875D740085C865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93F91AAD2A875D740085C865 /* Main.storyboard */; };
 		93F91AB12A875D750085C865 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93F91AB02A875D750085C865 /* Assets.xcassets */; };
 		93F91AB42A875D750085C865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93F91AB22A875D750085C865 /* LaunchScreen.storyboard */; };
+		93F91ABC2A875F0D0085C865 /* AlbumHomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F91ABB2A875F0D0085C865 /* AlbumHomePageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		935DDF2F2A87CA4F00C655D5 /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
+		935DDF312A880AEF00C655D5 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		93AD0C102A887010001ABFC5 /* jf-openhuninn-2.0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "jf-openhuninn-2.0.ttf"; sourceTree = "<group>"; };
+		93AD0C122A889E3F001ABFC5 /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
 		93F91AA42A875D740085C865 /* HW_Delegate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HW_Delegate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F91AA72A875D740085C865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93F91AA92A875D740085C865 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		93F91AAB2A875D740085C865 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		93F91AAE2A875D740085C865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93F91AB02A875D750085C865 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93F91AB32A875D750085C865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93F91AB52A875D750085C865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93F91ABB2A875F0D0085C865 /* AlbumHomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumHomePageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +45,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		93AD0C142A889E44001ABFC5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				93F91ABB2A875F0D0085C865 /* AlbumHomePageViewController.swift */,
+				93AD0C122A889E3F001ABFC5 /* AlbumDetailViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		93AD0C152A889E5D001ABFC5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				935DDF312A880AEF00C655D5 /* Album.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		93AD0C162A893F65001ABFC5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				93F91AAD2A875D740085C865 /* Main.storyboard */,
+				935DDF2F2A87CA4F00C655D5 /* AlbumTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		93F91A9B2A875D740085C865 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +90,15 @@
 		93F91AA62A875D740085C865 /* HW_Delegate */ = {
 			isa = PBXGroup;
 			children = (
+				93AD0C152A889E5D001ABFC5 /* Models */,
+				93AD0C162A893F65001ABFC5 /* Views */,
+				93AD0C142A889E44001ABFC5 /* View Controllers */,
 				93F91AA72A875D740085C865 /* AppDelegate.swift */,
 				93F91AA92A875D740085C865 /* SceneDelegate.swift */,
-				93F91AAB2A875D740085C865 /* ViewController.swift */,
-				93F91AAD2A875D740085C865 /* Main.storyboard */,
 				93F91AB02A875D750085C865 /* Assets.xcassets */,
 				93F91AB22A875D750085C865 /* LaunchScreen.storyboard */,
 				93F91AB52A875D750085C865 /* Info.plist */,
+				93AD0C102A887010001ABFC5 /* jf-openhuninn-2.0.ttf */,
 			);
 			path = HW_Delegate;
 			sourceTree = "<group>";
@@ -126,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93F91AB42A875D750085C865 /* LaunchScreen.storyboard in Resources */,
+				93AD0C112A887010001ABFC5 /* jf-openhuninn-2.0.ttf in Resources */,
 				93F91AB12A875D750085C865 /* Assets.xcassets in Resources */,
 				93F91AAF2A875D740085C865 /* Main.storyboard in Resources */,
 			);
@@ -138,9 +175,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93F91AAC2A875D740085C865 /* ViewController.swift in Sources */,
 				93F91AA82A875D740085C865 /* AppDelegate.swift in Sources */,
+				93F91ABC2A875F0D0085C865 /* AlbumHomePageViewController.swift in Sources */,
 				93F91AAA2A875D740085C865 /* SceneDelegate.swift in Sources */,
+				935DDF302A87CA4F00C655D5 /* AlbumTableViewCell.swift in Sources */,
+				935DDF322A880AEF00C655D5 /* Album.swift in Sources */,
+				93AD0C132A889E3F001ABFC5 /* AlbumDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +330,7 @@
 				DEVELOPMENT_TEAM = P8FCS2FB8Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HW_Delegate/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MyAlbum;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -318,6 +359,7 @@
 				DEVELOPMENT_TEAM = P8FCS2FB8Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HW_Delegate/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MyAlbum;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
