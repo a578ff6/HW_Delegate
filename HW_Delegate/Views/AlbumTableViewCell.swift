@@ -7,7 +7,7 @@
 
 import UIKit
 
-// TableViewCell
+/// TableViewCell 客製化
 class AlbumTableViewCell: UITableViewCell {
 
     /// 相簿封面
