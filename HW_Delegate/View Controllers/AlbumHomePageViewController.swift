@@ -179,29 +179,6 @@ extension AlbumHomePageViewController: PHPickerViewControllerDelegate {
 // 擴展AlbumHomePageViewController類別，實現UITableViewDataSource協議
 extension AlbumHomePageViewController: UITableViewDataSource {
     
-    // 配置每個 cell 的內容和外觀
-    func configureCell(_ cell: AlbumTableViewCell,forAlbumAt indexPath: IndexPath) {
-        
-        // 取得對應section和row的相簿資料
-        let album = albumSections[indexPath.section].albums[indexPath.row]
-//        print("目前正在處理的 Section 是 \(indexPath.section)，Row 是 \(indexPath.row)")  // 測試觀察用
-
-        // 設置相簿封面
-        cell.albumCoverImageView.image = UIImage(named: album.albumCoverImageName)
-        // 設置相簿的標題、描述和拍攝日期
-        cell.albumTitleLabel.text = album.albumTitle
-        cell.albumDescriptionLabel.text = album.description
-        cell.albumDateLabel.text = album.albumDate
-        
-        // 設置cll背景色
-        cell.backgroundColor = UIColor(red: 27/255, green: 27/255, blue: 27/255, alpha: 1)
-        // 設置選中cell時的背景色
-        let selectedBackgroundView = UIView()
-        selectedBackgroundView.backgroundColor = UIColor(red: 67/255, green: 67/255, blue: 67/255, alpha: 1)
-        cell.selectedBackgroundView = selectedBackgroundView
-    }
-    
-    
     // 此方法負責提供表格視圖的cell。每當表格視圖需要顯示一個cell時，就會調用此方法。
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 從Storyboard中取得reuseable cell，並將其轉換為AlbumTableViewCell
@@ -210,8 +187,10 @@ extension AlbumHomePageViewController: UITableViewDataSource {
             fatalError("Cannot dequeue cell as AlbumTableViewCell")
         }
         
-        // 調用 configureCell 方法進行 cell 的配置
-        configureCell(cell, forAlbumAt: indexPath)
+        // 取得對應section和row的相簿資料
+        let album = albumSections[indexPath.section].albums[indexPath.row]
+//        print("目前正在處理的 Section 是 \(indexPath.section)，Row 是 \(indexPath.row)")  // 測試觀察用
+        cell.update(with: album)        // 調用 cell 的 update 方法
         
         return cell
     }
@@ -225,7 +204,6 @@ extension AlbumHomePageViewController: UITableViewDataSource {
     // 返回給定section的行數，每個section的相簿數量（row數量）
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        print(albumSections[section].albums.count)      // 測試觀察
-        
         // 每個section有不同數量的row，允許每個section有不同數量的row（北部section：2）
         return albumSections[section].albums.count
     }
@@ -243,7 +221,7 @@ extension AlbumHomePageViewController: UITableViewDelegate {
     // 對 section 標題的自定義設計，包括調整字體、顏色、背景。（用於展示每個區域的名稱）
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
-//        print("目前處理的 Section 是 \(section)，標題是 \(albumSections[section].sectionTitle), 該section有\(albumSections[section].albums.count)個row")  // 測試觀察
+//        print("目前處理的Section是\(section)，標題 \(albumSections[section].sectionTitle), 該section有\(albumSections[section].albums.count)個row")  // 測試觀察
 
         // 創建一個自定義的 Header View
         let headerView = UIView()
@@ -266,6 +244,11 @@ extension AlbumHomePageViewController: UITableViewDelegate {
         return 40   // 返回 Header View 的高度為 40
     }
 
+}
+
+
+
+// 未拆開
 //// 擴展AlbumHomePageViewController類別，實現UITableViewDataSource協議
 //extension AlbumHomePageViewController: UITableViewDataSource {
 //
@@ -312,9 +295,6 @@ extension AlbumHomePageViewController: UITableViewDelegate {
 //        return albumSections[section].albums.count
 //    }
 //}
-
-}
-
 
 
 
