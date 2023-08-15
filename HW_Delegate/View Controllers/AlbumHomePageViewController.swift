@@ -176,18 +176,12 @@ extension AlbumHomePageViewController: PHPickerViewControllerDelegate {
 }
 
 
-
 // 擴展AlbumHomePageViewController類別，實現UITableViewDataSource協議
 extension AlbumHomePageViewController: UITableViewDataSource {
     
-    // 此方法負責提供表格視圖的cell。每當表格視圖需要顯示一個cell時，就會調用此方法。
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // 從Storyboard中取得reuseable cell，並將其轉換為AlbumTableViewCell
-        // withIdentifier：將 reuse id 定義成 cell 的類別，使用 string interpolation 產生字串 AlbumTableViewCell。（直接輸入字串也ok）
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(AlbumTableViewCell.self)", for: indexPath) as? AlbumTableViewCell else {
-            fatalError("Cannot dequeue cell as AlbumTableViewCell")
-        }
-
+    // 配置每個 cell 的內容和外觀
+    func configureCell(_ cell: AlbumTableViewCell,forAlbumAt indexPath: IndexPath) {
+        
         // 取得對應section和row的相簿資料
         let album = albumSections[indexPath.section].albums[indexPath.row]
 //        print("目前正在處理的 Section 是 \(indexPath.section)，Row 是 \(indexPath.row)")  // 測試觀察用
@@ -205,6 +199,19 @@ extension AlbumHomePageViewController: UITableViewDataSource {
         let selectedBackgroundView = UIView()
         selectedBackgroundView.backgroundColor = UIColor(red: 67/255, green: 67/255, blue: 67/255, alpha: 1)
         cell.selectedBackgroundView = selectedBackgroundView
+    }
+    
+    
+    // 此方法負責提供表格視圖的cell。每當表格視圖需要顯示一個cell時，就會調用此方法。
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // 從Storyboard中取得reuseable cell，並將其轉換為AlbumTableViewCell
+        // withIdentifier：將 reuse id 定義成 cell 的類別，使用 string interpolation 產生字串 AlbumTableViewCell。（直接輸入字串也ok）
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(AlbumTableViewCell.self)", for: indexPath) as? AlbumTableViewCell else {
+            fatalError("Cannot dequeue cell as AlbumTableViewCell")
+        }
+        
+        // 調用 configureCell 方法進行 cell 的配置
+        configureCell(cell, forAlbumAt: indexPath)
         
         return cell
     }
@@ -223,7 +230,6 @@ extension AlbumHomePageViewController: UITableViewDataSource {
         return albumSections[section].albums.count
     }
 }
-
 
 
 // 擴展AlbumHomePageViewController類別，實現UITableViewDelegate協議
@@ -259,6 +265,54 @@ extension AlbumHomePageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40   // 返回 Header View 的高度為 40
     }
+
+//// 擴展AlbumHomePageViewController類別，實現UITableViewDataSource協議
+//extension AlbumHomePageViewController: UITableViewDataSource {
+//
+//    // 此方法負責提供表格視圖的cell。每當表格視圖需要顯示一個cell時，就會調用此方法。
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        // 從Storyboard中取得reuseable cell，並將其轉換為AlbumTableViewCell
+//        // withIdentifier：將 reuse id 定義成 cell 的類別，使用 string interpolation 產生字串 AlbumTableViewCell。（直接輸入字串也ok）
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(AlbumTableViewCell.self)", for: indexPath) as? AlbumTableViewCell else {
+//            fatalError("Cannot dequeue cell as AlbumTableViewCell")
+//        }
+//
+//        // 取得對應section和row的相簿資料
+//        let album = albumSections[indexPath.section].albums[indexPath.row]
+////        print("目前正在處理的 Section 是 \(indexPath.section)，Row 是 \(indexPath.row)")  // 測試觀察用
+//
+//        // 設置相簿封面
+//        cell.albumCoverImageView.image = UIImage(named: album.albumCoverImageName)
+//        // 設置相簿的標題、描述和拍攝日期
+//        cell.albumTitleLabel.text = album.albumTitle
+//        cell.albumDescriptionLabel.text = album.description
+//        cell.albumDateLabel.text = album.albumDate
+//
+//        // 設置cll背景色
+//        cell.backgroundColor = UIColor(red: 27/255, green: 27/255, blue: 27/255, alpha: 1)
+//        // 設置選中cell時的背景色
+//        let selectedBackgroundView = UIView()
+//        selectedBackgroundView.backgroundColor = UIColor(red: 67/255, green: 67/255, blue: 67/255, alpha: 1)
+//        cell.selectedBackgroundView = selectedBackgroundView
+//
+//        return cell
+//    }
+//
+//    // 返回表格視圖的section數量，即不同地區section的數量（北部、中部、南部、東部、外島、綜合）
+//    func numberOfSections(in tableView: UITableView) -> Int {
+////        print("表格section數量\(albumSections.count)")      // 測試
+//        return albumSections.count
+//    }
+//
+//    // 返回給定section的行數，每個section的相簿數量（row數量）
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+////        print(albumSections[section].albums.count)      // 測試觀察
+//
+//        // 每個section有不同數量的row，允許每個section有不同數量的row（北部section：2）
+//        return albumSections[section].albums.count
+//    }
+//}
+
 }
 
 
